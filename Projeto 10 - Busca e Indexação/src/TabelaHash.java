@@ -13,7 +13,7 @@ public class TabelaHash {
 	}
 
 	private int calcularIndice(String texto) {
-		// Calcula o índice baseado na primeira letra da palavra
+		
 		return Character.toLowerCase(texto.charAt(0)) - 'a';
 	}
 
