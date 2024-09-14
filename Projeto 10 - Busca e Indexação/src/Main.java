@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        // Usar o classloader para carregar arquivos de recursos no classpath
+    
         try {
             InputStream textoStream = Main.class.getResourceAsStream("/textos/texto.txt");
             InputStream palavrasChaveStream = Main.class.getResourceAsStream("/textos/palavraChave.txt");
@@ -16,16 +16,16 @@ public class Main {
                 String textoLido = new String(textoStream.readAllBytes(), StandardCharsets.UTF_8);
                 String palavrasChaveLidas = new String(palavrasChaveStream.readAllBytes(), StandardCharsets.UTF_8);
 
-                // Processamento com os arquivos lidos
+                
                 ProcessadorTexto processadorTexto = new ProcessadorTexto(26);
                 processadorTexto.lerTexto(textoLido);
                 processadorTexto.lerPalavrasChave(palavrasChaveLidas);
 
-                // Gerar índice remissivo
+                
                 TabelaHash tabelaHash = processadorTexto.getTabelaHash();
                 GeradorIndiceRemissivo gerador = new GeradorIndiceRemissivo(tabelaHash, processadorTexto.getPalavrasChave());
 
-                // Obter o resultado do índice remissivo
+                
                 String resultado = gerador.toString();
 
                 // Escrever o resultado em um arquivo chamado "resultado.txt"
