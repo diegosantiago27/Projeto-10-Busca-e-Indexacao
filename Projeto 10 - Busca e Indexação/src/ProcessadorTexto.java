@@ -14,15 +14,15 @@ public class ProcessadorTexto {
 
 	    for (String linha : linhas) {
 	        numeroLinha++;
-	        // Ajusta a expressão regular para preservar hífens e outros caracteres especiais
+	        
 	        String[] palavras = linha.split("\\s+");
 
 	        for (String textoPalavra : palavras) {
-	            // Remove pontuação ao redor da palavra, mas preserva hífens
+	            
 	            textoPalavra = textoPalavra.replaceAll("[^a-zA-Z0-9-]", "");
 	            String palavraNormalizada = textoPalavra.toLowerCase();
 	            if (palavraNormalizada.isEmpty()) {
-	                continue; // Pular palavras vazias
+	                continue;
 	            }
 	            Palavra palavra = tabelaHash.buscarPalavra(palavraNormalizada);
 	            if (palavra == null) {
